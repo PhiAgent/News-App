@@ -17,7 +17,7 @@ const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
 // API ENDPOINTS
 const TECH_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`;
 const BUSINESS_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
-const WORLD_ENDPOINT: string = `https://newsapi.org/v2/top-headlines/sources?apiKey=${API_KEY}`;
+const WORLD_ENDPOINT: string = `https://newsapi.org/v2/everything?q=(ukraine OR china)&from=2022-02-28&sortBy=publishedAt&apiKey=${API_KEY}`;
 
 
 // MIDDLEWARE
@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 // ROUTES
 
+// Get Business News
 app.get('/business', (req: any, res: any) => {
 
   axios
@@ -40,6 +41,7 @@ app.get('/business', (req: any, res: any) => {
     });
 });
 
+// Get World News
 app.get('/world', (req: any, res: any) => {
 
   axios
@@ -48,6 +50,7 @@ app.get('/world', (req: any, res: any) => {
     .catch((err: any) => res.status(400).end());
 });
 
+// Get Tech News
 app.get('/tech', (req: any, res: any) => {
 
   axios
