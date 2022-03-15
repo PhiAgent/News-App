@@ -1,16 +1,15 @@
 
 //ENVIRONMENT
-import * as dotenv from 'dotenv';
-import * as path from 'path';
+const dotenv = require('dotenv');
+const path = require('path');
 
 
 // SERVER
-import * as express from 'express';
-import * as url from 'url';
-import * as cors from 'cors';
-import * as morgan from 'morgan';
-import axios from 'axios';
-import API_KEY from './config';
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const axios = require('axios');
+const API_KEY = require('./config');
 const app = express();
 const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
 
@@ -19,9 +18,6 @@ const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
 const TECH_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`;
 const BUSINESS_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
 const WORLD_ENDPOINT: string = `https://newsapi.org/v2/top-headlines/sources?apiKey=${API_KEY}`;
-const auth = {
-  headers: { 'Authorization': `${API_KEY}` }
-};
 
 
 // MIDDLEWARE
@@ -33,31 +29,34 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 // ROUTES
 
-app.get('/business', (req, res) => {
+app.get('/business', (req: any, res: any) => {
 
   axios
-    .get(`${BUSINESS_ENDPOINT}${path}`, auth)
-    .then(response => res.status(200).send(response.data))
-    .catch(err => res.status(400).end());
+    .get(BUSINESS_ENDPOINT)
+    .then((response: any) => res.status(200).send(response.data))
+    .catch((err: any) => {
+      console.log(err);
+      res.status(400).end();
+    });
 });
 
-app.get('/world', (req, res) => {
+app.get('/world', (req: any, res: any) => {
 
   axios
-    .get(`${WORLD_ENDPOINT}${path}`, auth)
-    .then(response => res.status(200).send(response.data))
-    .catch(err => res.status(400).end());
+    .get(WORLD_ENDPOINT)
+    .then((response: any) => res.status(200).send(response.data))
+    .catch((err: any) => res.status(400).end());
 });
 
-app.get('/tech', (req, res) => {
+app.get('/tech', (req: any, res: any) => {
 
   axios
-    .get(`${TECH_ENDPOINT}${path}`, auth)
-    .then(response => res.status(200).send(response.data))
-    .catch(err => res.status(400).end());
+    .get(TECH_ENDPOINT)
+    .then((response: any) => res.status(200).send(response.data))
+    .catch((err: any) => res.status(400).end());
 });
 
-app.get('*', (req, res) => {
+app.get('*', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
