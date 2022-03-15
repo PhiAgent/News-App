@@ -6,8 +6,7 @@ dist/*
 node_modules/
 *.log
 data
-config.js
-config.env
+config.*
 notes.*
 deployment*
 
