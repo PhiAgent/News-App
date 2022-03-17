@@ -9,15 +9,8 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const axios = require('axios');
-const API_KEY = require('./config');
 const app = express();
 const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
-
-
-// API ENDPOINTS
-const TECH_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`;
-const BUSINESS_ENDPOINT: string = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
-const WORLD_ENDPOINT: string = `https://newsapi.org/v2/everything?q=(ukraine OR china)&from=2022-02-28&sortBy=publishedAt&apiKey=${API_KEY}`;
 
 
 // MIDDLEWARE
@@ -59,6 +52,7 @@ app.get('/tech', (req: any, res: any) => {
     .catch((err: any) => res.status(400).end());
 });
 
+// Route to homepage on wrong entry
 app.get('*', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
