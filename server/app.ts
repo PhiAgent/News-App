@@ -28,7 +28,7 @@ app.get('/world', getWorldNews);
 app.get('/tech', getTechNews);
 
 
-// Catch Error URL Entry
+// CATCH ERROR URL ENTRY
 app.get('*', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
@@ -36,3 +36,7 @@ app.get('*', (req: Request, res: Response) => {
 dotenv.config;
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
+
+// VIEWS
+// The server exposes APIs that are consumed by
+// the UI on the frontend to render information.

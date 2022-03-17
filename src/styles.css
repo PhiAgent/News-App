@@ -1,4 +1,32 @@
-h1 {
-  color: white;
-  background-color: black;
+:root {
+  --main-background: #A6A297;
+  --secondary-background: #F2F2F2;
+  --primary: #F2E635;
+  --secondary: #A69D1F;
+  --secondary-alt: #A68F1F;
+  --font-size: 1.3rem;
+  --font-text: arial, sans-serif;
+  --font-title: Roboto;
+  --black: #1f1c0a;
+  --white: #eeede7;
+  --hotmag: #ff17e4;
+  --aqua: #00FFFF;
+  --plum: #673147;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  line-height:1.6;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.title {
+  border-bottom: 1px solid #eeede7 !important;
 }

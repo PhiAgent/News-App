@@ -9,10 +9,7 @@ export const getBusinessNews = (req: Request, res: Response) => {
   axios
     .get(BUSINESS_ENDPOINT)
     .then((response: any) => res.status(200).send(response.data))
-    .catch((err: any) => {
-      console.log(err);
-      res.status(400).end();
-    });
+    .catch((err: any) => res.status(400).end());
 
 };
 
