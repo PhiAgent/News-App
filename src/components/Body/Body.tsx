@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Homepage from './Homepage';
 
 
 const style = {
@@ -13,6 +14,8 @@ const style = {
 // homepage, chosen will be set to true
 // while chosen is true
 // the appropriate feed will be displayed
+// while chosen is true, homepage button will
+// be displayed in the first grid
 
 const Body = () => {
 
@@ -20,6 +23,7 @@ const Body = () => {
     <Grid container sx={style}>
       <Grid item xs={2}></Grid>
       <Grid item xs={8}>
+        <Homepage/>
       </Grid>
       <Grid item xs={2}></Grid>
     </Grid>

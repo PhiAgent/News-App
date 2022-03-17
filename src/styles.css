@@ -26,12 +26,13 @@ body {
   line-height:1.6;
   background-color: var(--black);
   color: var(--white);
-  height: 100%;
+  min-height: 100vh;
 }
 
 /* Title Styles */
 .title {
   border-bottom: 1px solid #eeede7 !important;
+  font-family: var(--font-title);
 }
 
 .icon {
@@ -49,4 +50,47 @@ footer {
   flex-direction: row;
   justify-content: center;
   border-top: 1px solid #eeede7 !important;
+}
+
+/* Homepage Styling */
+.tab-container {
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.homepage {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome {
+  margin: 5px;
+  font-size: 15;
+  font-family: var(--font-title);
+}
+
+
+/* Reusable Components */
+/* Tab */
+.tab {
+  margin: 6px;
+  border-radius: 10px;
+  width:150px;
+  height: 90px;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  position: relative;
+  font-family: libre baskerville;
 }
