@@ -1,14 +1,14 @@
 
 //ENVIRONMENT
-const dotenv = require('dotenv');
-const path = require('path');
+import dotenv from 'dotenv';
+import path from 'path';
 
 
 // SERVER
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const { getBusinessNews, getWorldNews, getTechNews } = require('./controllers/controllers');
+import express, {Request, Response} from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import { getBusinessNews, getWorldNews, getTechNews } from './controllers/controllers';
 
 // SETUP
 const app = express();
@@ -27,8 +27,9 @@ app.get('/business', getBusinessNews);
 app.get('/world', getWorldNews);
 app.get('/tech', getTechNews);
 
+
 // Catch Error URL Entry
-app.get('*', (req: any, res: any) => {
+app.get('*', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 

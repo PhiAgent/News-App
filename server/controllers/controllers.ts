@@ -1,8 +1,10 @@
 export { };
-const axios = require('axios');
-const { TECH_ENDPOINT, BUSINESS_ENDPOINT, WORLD_ENDPOINT } = require('./../models/models');
+import axios from 'axios';
+import { TECH_ENDPOINT, BUSINESS_ENDPOINT, WORLD_ENDPOINT } from './../models/models';
+import {Request, Response} from 'express';
 
-const getBusinessNews = (req: any, res: any) => {
+
+export const getBusinessNews = (req: Request, res: Response) => {
 
   axios
     .get(BUSINESS_ENDPOINT)
@@ -14,7 +16,7 @@ const getBusinessNews = (req: any, res: any) => {
 
 };
 
-const getWorldNews = (req: any, res: any) => {
+export const getWorldNews = (req: Request, res: Response) => {
 
   axios
     .get(WORLD_ENDPOINT)
@@ -23,7 +25,7 @@ const getWorldNews = (req: any, res: any) => {
 
 };
 
-const getTechNews = (req: any, res: any) => {
+export const getTechNews = (req: Request, res: Response) => {
 
   axios
     .get(TECH_ENDPOINT)
@@ -32,9 +34,8 @@ const getTechNews = (req: any, res: any) => {
 
 };
 
-module.exports = { getBusinessNews, getWorldNews, getTechNews};
 
-// Controller
+// CONTROLLERS
 // these consume API's exposed by the models
 // and don't need to know what those api's do.
 // As such, the API's can be modified and the application will still run unbroken
