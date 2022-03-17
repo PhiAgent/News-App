@@ -17,8 +17,8 @@ const Title = () => {
       <Toolbar>
         <Typography variant="h3" component="div" sx={{ flexGrow: 1 }} >
           News on the go
+          <DirectionsBikeIcon fontSize="large" className="icon" />
         </Typography>
-        <DirectionsBikeIcon />
       </Toolbar>
     </AppBar>
   )
