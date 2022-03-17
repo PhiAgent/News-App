@@ -8,7 +8,9 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const axios = require('axios');
+const { getBusinessNews, getWorldNews, getTechNews } = require('./controllers/controllers');
+
+// SETUP
 const app = express();
 const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
 
@@ -21,38 +23,11 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 
 // ROUTES
+app.get('/business', getBusinessNews);
+app.get('/world', getWorldNews);
+app.get('/tech', getTechNews);
 
-// Get Business News
-app.get('/business', (req: any, res: any) => {
-
-  axios
-    .get(BUSINESS_ENDPOINT)
-    .then((response: any) => res.status(200).send(response.data))
-    .catch((err: any) => {
-      console.log(err);
-      res.status(400).end();
-    });
-});
-
-// Get World News
-app.get('/world', (req: any, res: any) => {
-
-  axios
-    .get(WORLD_ENDPOINT)
-    .then((response: any) => res.status(200).send(response.data))
-    .catch((err: any) => res.status(400).end());
-});
-
-// Get Tech News
-app.get('/tech', (req: any, res: any) => {
-
-  axios
-    .get(TECH_ENDPOINT)
-    .then((response: any) => res.status(200).send(response.data))
-    .catch((err: any) => res.status(400).end());
-});
-
-// Route to homepage on wrong entry
+// Catch Error URL Entry
 app.get('*', (req: any, res: any) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
