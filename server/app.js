@@ -8,7 +8,7 @@ require("dotenv").config({ path: path.join(__dirname, "./config.env") });
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser } = require('./controllers/controllers');
+const { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser, getFavorites } = require('./controllers/controllers');
 
 // SETUP
 const app = express();
@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, '../dist')));
 app.get('/business', getBusinessNews);
 app.get('/world', getWorldNews);
 app.get('/tech', getTechNews);
+app.get('/favorite', getFavorites);
 app.post('/user', addUser);
 app.post('/favorite', addFavorite);
 app.delete('/favorite', deleteFavorite);

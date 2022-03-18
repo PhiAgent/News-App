@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Homepage from './Homepage';
+import Login from './Login';
 
 
 const style = {
@@ -23,7 +24,8 @@ const Body = () => {
     <Grid container sx={style}>
       <Grid item xs={2}></Grid>
       <Grid item xs={8}>
-        <Homepage/>
+        {/* <Homepage/> */}
+        <Login/>
       </Grid>
       <Grid item xs={2}></Grid>
     </Grid>

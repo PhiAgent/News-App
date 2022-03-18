@@ -1,6 +1,6 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
-import Tab from '../../components/controls/Tab/Tab';
+import { Tab } from '../controls';
 import Typography from '@mui/material/Typography';
 
 const Homepage = () => {

@@ -10,9 +10,8 @@ const pool = new Pool(config);
    * Checks if user already registered in database
    * if user not registered, adds user to database
    * @param {string} username - username of user
-   * @returns {void} - returns nothing but supplies callback with object with information on whether the transaction was successful
+   * @returns {void} - returns nothing but supplies callback with object containing user information
   */
-
 const registerUser = (username, cb) => {
   const query = 'SELECT * FROM users WHERE username = $1';
   const addUser = 'INSERT INTO users(username) VALUES ($1)';
@@ -22,21 +21,29 @@ const registerUser = (username, cb) => {
     .then(client =>
       client
         .query(query, [username])
-        .then(username => {
-          if(username.rows.length === 0){//no such user exists
+        .then(users => {
+          if(users.rows.length === 0){//no such user exists
             client
               .query(addUser, [username])
-              .then(username => {
-                client.release();
-                cb(null, { msg: 200 });
+              .then(success => {
+                client
+                  .query(query, [username])
+                  .then(user => {
+                    client.release();
+                    cb(null, user.rows);
+                  } )
+                  .catch(err => {
+                    client.release();
+                    cb(err);
+                  })
               })
               .catch(err => {
                 client.release();
-                cb({ msg: 500 });
+                cb(err);
               })
           } else {
             client.release();
-            cb(null, { msg: 200 });
+            cb(null, users.rows);
           }
         })
         .catch(err => {
@@ -182,7 +189,7 @@ const removeFavorite = (userID, newsID, cb) => {
 
 /**
    * Changes username of the given user
-   * @param {strin} oldUsername - old username of user
+   * @param {string} oldUsername - old username of user
    * @param {string} newUsername - new username of user
    * @returns {void} - returns nothing but supplies callback with object with information on whether the transaction was successful
   */
@@ -207,4 +214,41 @@ const changeUsername = (oldUsername, newUsername, cb) => {
 };
 
 
-module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser};
+/**
+   * Fetches the favorite news of given user
+   * @param {number} userId - userId of user
+   * @returns {void} - returns nothing but supplies callback with object with favorite news of user
+  */
+const fetchFavorites = (userID, cb) => {
+  const query = 'SELECT * FROM news WHERE id IN (SELECT newsID FROM favorites WHERE (userID = $1))';
+
+  pool
+    .connect()
+    .then(client =>
+      client
+        .query(query, [userID])
+        .then(favorites => {
+          client.release();
+          cb(null, favorites.rows);
+        })
+        .catch(err => {
+          client.release();
+          cb({ msg: 500 });
+        })
+    )
+    .catch(err => cb({ msg: 500 }));
+};
+module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser, fetchFavorites};
+
+
+// MODELS
+// The Model component sits directly on top
+// of the database and doesn't need to know what
+// information is coming from the database.
+// By isolating the API logic from the server
+// in this MVC application, the business logic
+// is essentialy isolated, allowing the
+// application to be amenable to business
+// changes in the future. its possible
+// to substitute this api to another
+// and without breaking the application

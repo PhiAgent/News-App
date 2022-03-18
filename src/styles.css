@@ -36,7 +36,7 @@ body {
 }
 
 .icon {
-  color: var(--aqua);
+  color: #2196f3;
   margin-left: 10px;
   vertical-align: middle;
 }
@@ -106,4 +106,24 @@ footer {
 
 .businessTab:hover {
   background-color: yellowgreen !important;
+}
+
+
+/* Login Styling */
+.errors {
+  color: red !important;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContent, .usernameHelper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

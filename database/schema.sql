@@ -41,6 +41,7 @@ CREATE TABLE favorites(
 CREATE INDEX ON favorites(userID);
 CREATE INDEX ON news(category);
 CREATE INDEX ON users(username);
+CREATE UNIQUE INDEX idx_favorites ON favorites(userID, newsID);
 
 INSERT INTO users(username, admin) VALUES ('phiAgent', TRUE);
 

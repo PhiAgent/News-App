@@ -1,4 +1,14 @@
-const { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser } = require('./../models/model');
+const { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser, fetchFavorites } = require('./../models/model');
+
+
+const getFavorites = (req, res) => {
+  const userID = req.query.userID;
+
+  const cb = (err, response) =>
+    err ? res.status(err.msg).end() : res.status(200).send(response);
+
+  fetchFavorites(userID, cb);
+};
 
 const getBusinessNews = (req, res) => {
 
@@ -11,11 +21,10 @@ const getBusinessNews = (req, res) => {
 const addUser = (req, res) => {
   const username = req.body.username;
 
-  const cb = (err, success) =>
-    err ? res.status(err.msg).end() : res.status(success.msg).end();
+  const cb = (err, user) =>
+    err ? res.status(500).send(err) : res.status(200).send(user);
 
   registerUser(username, cb);
-
 };
 
 const getWorldNews = (req, res) => {
@@ -67,7 +76,7 @@ const editUsername = (req, res) => {
 };
 
 
-module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser};
+module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser, getFavorites};
 
 
 // CONTROLLERS
