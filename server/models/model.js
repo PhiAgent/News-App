@@ -4,6 +4,50 @@ const config = require('./../../database/config');
 const pool = new Pool(config);
 
 
+
+
+/**
+   * Checks if user already registered in database
+   * if user not registered, adds user to database
+   * @param {string} username - username of user
+   * @returns {void} - returns nothing but supplies callback with object with information on whether the transaction was successful
+  */
+
+const registerUser = (username, cb) => {
+  const query = 'SELECT * FROM users WHERE username = $1';
+  const addUser = 'INSERT INTO users(username) VALUES ($1)';
+
+  pool
+    .connect()
+    .then(client =>
+      client
+        .query(query, [username])
+        .then(username => {
+          if(username.rows.length === 0){//no such user exists
+            client
+              .query(addUser, [username])
+              .then(username => {
+                client.release();
+                cb(null, { msg: 200 });
+              })
+              .catch(err => {
+                client.release();
+                cb({ msg: 500 });
+              })
+          } else {
+            client.release();
+            cb(null, { msg: 200 });
+          }
+        })
+        .catch(err => {
+          client.release();
+          cb({ msg: 500 });
+        })
+    )
+    .catch(err => cb({ msg: 500 }))
+};
+
+
 /**
    * Fetches business news from the database below
    * @param {function} callback - a function that takes argument to the controller layer above
@@ -136,7 +180,6 @@ const removeFavorite = (userID, newsID, cb) => {
 };
 
 
-
 /**
    * Changes username of the given user
    * @param {strin} oldUsername - old username of user
@@ -163,4 +206,5 @@ const changeUsername = (oldUsername, newUsername, cb) => {
     .catch(err => cb({ msg: 500 }))
 };
 
-module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername};
+
+module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser};

@@ -1,4 +1,4 @@
-const { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername } = require('./../models/model');
+const { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser } = require('./../models/model');
 
 const getBusinessNews = (req, res) => {
 
@@ -6,6 +6,16 @@ const getBusinessNews = (req, res) => {
     err ? res.status(err.msg).end() : res.status(200).send(businessNews);
 
   fetchBusinessNews(cb);
+};
+
+const addUser = (req, res) => {
+  const username = req.body.username;
+
+  const cb = (err, success) =>
+    err ? res.status(err.msg).end() : res.status(success.msg).end();
+
+  registerUser(username, cb);
+
 };
 
 const getWorldNews = (req, res) => {
@@ -57,7 +67,7 @@ const editUsername = (req, res) => {
 };
 
 
-module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername};
+module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser};
 
 
 // CONTROLLERS
