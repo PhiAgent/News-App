@@ -1,18 +1,18 @@
 
 //ENVIRONMENT
-import dotenv from 'dotenv';
-import path from 'path';
+const path = require('path');
+require("dotenv").config({ path: path.join(__dirname, "./config.env") });
 
 
 // SERVER
-import express, {Request, Response} from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import { getBusinessNews, getWorldNews, getTechNews } from './controllers/controllers';
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const { getBusinessNews, getWorldNews, getTechNews } = require('./controllers/controllers');
 
 // SETUP
 const app = express();
-const PORT: number = parseInt(process.env.PORT as string, 10) || 8080;
+const PORT = process.env.PORT || 8080;
 
 
 // MIDDLEWARE
@@ -29,11 +29,9 @@ app.get('/tech', getTechNews);
 
 
 // CATCH ERROR URL ENTRY
-app.get('*', (req: Request, res: Response) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
-
-dotenv.config;
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 
