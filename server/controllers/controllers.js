@@ -53,7 +53,7 @@ const editUsername = (req, res) => {
   const cb = (err, response) =>
     err ? res.status(err.msg).end() : res.status(response.msg).end();
 
-  removeFavorite(oldUsername, newUsername, cb);
+  changeUsername(oldUsername, newUsername, cb);
 };
 
 
