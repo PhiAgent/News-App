@@ -93,4 +93,17 @@ footer {
   font-size: 19px;
   position: relative;
   font-family: libre baskerville;
+  cursor: pointer;
+}
+
+.techTab:hover {
+  background-color: #AE6802 !important;
+}
+
+.worldNewsTab:hover {
+  background-color: #CA00B2 !important;
+}
+
+.businessTab:hover {
+  background-color: yellowgreen !important;
 }

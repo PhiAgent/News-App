@@ -1,15 +1,16 @@
 import React from 'react';
 
 type Props = {
-  backgroundColor: string
+  backgroundColor: string;
   // onClick: () => void
-  text: string
+  text: string;
+  uniqClass: string;
 }
 
-const Tab = ({ text,backgroundColor }: Props) => {
+const Tab = ({ text,backgroundColor, uniqClass }: Props) => {
 
   return(
-    <div className="tab" style={{ backgroundColor}}>
+    <div className={`tab ${uniqClass}`} style={{ backgroundColor}}>
       {text}
     </div>
   )

@@ -36,6 +36,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
+
+// LISTEN
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 
 

@@ -135,6 +135,14 @@ const removeFavorite = (userID, newsID, cb) => {
     .catch(err => cb({ msg: 500 }));
 };
 
+
+
+/**
+   * Changes username of the given user
+   * @param {strin} oldUsername - old username of user
+   * @param {string} newUsername - new username of user
+   * @returns {void} - returns nothing but supplies callback with object with information on whether the transaction was successful
+  */
 const changeUsername = (oldUsername, newUsername, cb) => {
   const query = 'UPDATE users SET username = $1 WHERE (username = $2)';
 

@@ -19,16 +19,19 @@ const Homepage = () => {
           text="TECHNOLOGY NEWS"
           // onClick={}
           backgroundColor="#f97403"
+          uniqClass="techTab"
         />
         <Tab
           text="WORLD NEWS"
           // onClick={}
           backgroundColor="#ff17e4"
+          uniqClass="worldNewsTab"
         />
         <Tab
           text="BUSINESS NEWS"
           // onClick={}
           backgroundColor="green"
+          uniqClass="businessTab"
         />
       </Stack>
     </Stack>

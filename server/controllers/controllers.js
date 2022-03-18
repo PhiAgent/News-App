@@ -61,6 +61,6 @@ module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite, dele
 
 
 // CONTROLLERS
-// these consume API's exposed by the models
+// The controllers consume API's exposed by the models
 // and don't need to know what those api's do.
 // As such, the API's can be modified and the application will still run unbroken
