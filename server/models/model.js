@@ -63,4 +63,24 @@ const fetchTechNews = cb => {
     .catch(err => cb({ msg: 500 }))
 };
 
-module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews};
+const newFavorite = (userID, newsID, cb) => {
+  const query = 'INSERT INTO favorites(userId, newsID) VALUES ($1, $2)';
+
+  pool
+    .connect()
+    .then(client =>
+      client
+        .query(query, [userID, newsID])
+        .then(success => {
+          client.release();
+          cb(null, {msg: 200});
+        })
+        .catch(err => {
+          client.release();
+          cb({ msg: 500 });
+        })
+    )
+    .catch(err => cb({ msg: 500 }))
+};
+
+module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite};

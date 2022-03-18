@@ -1,4 +1,4 @@
-const { fetchTechNews, fetchWorldNews, fetchBusinessNews } = require('./../models/model');
+const { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite } = require('./../models/model');
 
 const getBusinessNews = (req, res) => {
 
@@ -26,7 +26,17 @@ const getTechNews = (req, res) => {
 
 };
 
-module.exports = { getBusinessNews, getWorldNews, getTechNews};
+const addFavorite = (req, res) => {
+  const userID = req.body.userID,
+        newsID = req.body.newsID;
+
+  const cb = (err, response) =>
+    err ? res.status(err.msg).end() : res.status(response.msg).end();
+
+  newFavorite(userID, newsID, cb);
+};
+
+module.exports = { getBusinessNews, getWorldNews, getTechNews, addFavorite};
 
 
 // CONTROLLERS
