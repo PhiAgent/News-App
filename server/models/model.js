@@ -238,6 +238,7 @@ const fetchFavorites = (userID, cb) => {
     )
     .catch(err => cb({ msg: 500 }));
 };
+
 module.exports = { fetchTechNews, fetchWorldNews, fetchBusinessNews, newFavorite, removeFavorite, changeUsername, registerUser, fetchFavorites};
 
 
