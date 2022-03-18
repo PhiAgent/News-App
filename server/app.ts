@@ -37,6 +37,7 @@ dotenv.config;
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 
+
 // VIEWS
 // The server exposes APIs that are consumed by
 // the UI on the frontend to render information.
