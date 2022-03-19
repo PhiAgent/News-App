@@ -22,11 +22,6 @@ const style = {
   }
 };
 
-// const tabHeaderStyle = {
-//   borderBottom: 1,
-//   borderColor: 'divider',
-//   position: 'sticky'
-// }
 
 const Feed = () => {
 

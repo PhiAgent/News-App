@@ -1,5 +1,12 @@
-// function that given an id
-// will search through an array
-// find an object with that id
-// delete that object
-// and return the array
+
+import { News } from "../components/controls/NewsList/NewsList";
+
+// Remove news from Favorites list on Frontend
+export const removeFavorite = (id: number, favorites: News[]) => favorites.filter((favorite: News) => favorite['id'] !== id);
+
+
+// Add news to favorites on Frontend
+export const addFavorite = (id: number, category: News[], favorites: News[]) => {
+  const fave: News | undefined = category.find((newslet: News) => newslet['id'] === id);
+  if (fave) return favorites.concat([fave]);
+};

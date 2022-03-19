@@ -61,7 +61,7 @@ export const ContextProvider: FC = ({children}) => {
 };
 
 // Supplies Context values in Consumer Components
-const useMode = () => useContext(ThemeContext);
+const useNews = () => useContext(ThemeContext);
 
-export default useMode;
+export default useNews;
 
