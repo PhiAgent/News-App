@@ -4,6 +4,10 @@ import { News } from '../NewsList/NewsList';
 import Grid from '@mui/material/Grid';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { addFavorite, removeFavorite } from '../../../utils/utils';
+import useNews from '../../../context/context';
+import axios from 'axios';
+const url = require('./../../../../server/url');
 
 const style = {
   width: '100%',
@@ -16,8 +20,35 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
 
   var [favorite, markFavorite] = useState(0);
   useEffect(() => { }, [favorite]);
+  const {favorites, setFavorites, businessNews, worldNews, techNews, userID} = useNews();
 
-  const faveFunc = () => {};
+  // if not favorite, make favorite and
+  // add to favorites in front end and
+  // send request to backend
+  // else do the same
+  const group = category === 'business' ? businessNews : category === 'world news' ? worldNews : techNews;
+
+  const faveFunc = () => {
+    if(!favorite){
+      markFavorite(1);
+      const newFavorites: any = group && favorites && addFavorite(id, group,favorites);
+      newFavorites && setFavorites && setFavorites(newFavorites);
+      userID &&
+      axios
+        .post(`${url}/favorite`, {userID, newsID: id})
+        .then(results => results.data)
+        .catch(err => err);
+    } else {
+      markFavorite(0);
+      const selectFavorites: any = group && favorites && removeFavorite(id, favorites);
+      selectFavorites && setFavorites && setFavorites(selectFavorites);
+      userID &&
+      axios
+        .delete(`${url}/favorite`, {params: {userID, newsID: id }})
+        .then(results => results.data)
+        .catch(err => err);
+    }
+  };
 
   return(
     <Box sx={style}>

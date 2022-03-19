@@ -6,7 +6,7 @@ import {useLocalStorage} from './../hooks/useLocalStorage';
 interface userInfo {
   username: string;
   userID: number;
-  favorites: News[];
+  favorites: any;
   techNews: News[];
   businessNews: News[];
   worldNews: News[];

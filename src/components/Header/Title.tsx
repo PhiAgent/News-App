@@ -43,7 +43,7 @@ const Title = () => {
     setUser && setUser('');
     choose && choose(false);
     setUserID && setUserID(0);
-  }
+  };
 
 
   return (

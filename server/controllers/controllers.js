@@ -56,8 +56,8 @@ const addFavorite = (req, res) => {
 };
 
 const deleteFavorite = (req, res) => {
-  const userID = req.body.userID,
-        newsID = req.body.newsID;
+  const userID = req.query.userID,
+        newsID = req.query.newsID;
 
   const cb = (err, response) =>
     err ? res.status(err.msg).end() : res.status(response.msg).end();
