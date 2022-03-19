@@ -6,18 +6,20 @@ type Props = {
   onClick: () => void;
   text: string;
   uniqClass: string;
+  ariaLabel: string;
 }
 
-const Tab = ({ text,backgroundColor, uniqClass, onClick }: Props) => {
+const Tab = ({ text,backgroundColor, uniqClass, onClick, ariaLabel }: Props) => {
 
   return(
-    <Box
+    <div
       className={`tab ${uniqClass}`}
       style={{ backgroundColor}}
       onClick={onClick}
+      arial-label={ariaLabel}
     >
       {text}
-    </Box>
+    </div>
   )
 };
 

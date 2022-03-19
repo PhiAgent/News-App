@@ -37,18 +37,21 @@ const Homepage = () => {
           onClick={setTech}
           backgroundColor="#f97403"
           uniqClass="techTab"
+          ariaLabel="Click to see Tech News"
         />
         <Tab
           text="WORLD NEWS"
           onClick={setWorld}
           backgroundColor="#ff17e4"
           uniqClass="worldNewsTab"
+          ariaLabel="Click to see World News"
         />
         <Tab
           text="BUSINESS NEWS"
           onClick={setBusiness}
           backgroundColor="green"
           uniqClass="businessTab"
+          ariaLabel="Click to see Business News"
         />
       </Stack>
     </Stack>
