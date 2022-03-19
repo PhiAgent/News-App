@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 
 type Props = {
   backgroundColor: string;
@@ -10,9 +11,9 @@ type Props = {
 const Tab = ({ text,backgroundColor, uniqClass }: Props) => {
 
   return(
-    <div className={`tab ${uniqClass}`} style={{ backgroundColor}}>
+    <Box className={`tab ${uniqClass}`} style={{ backgroundColor}}>
       {text}
-    </div>
+    </Box>
   )
 };
 

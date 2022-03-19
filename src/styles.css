@@ -127,3 +127,13 @@ footer {
   align-items: center;
   width: 100%;
 }
+
+
+/* Display Page Styling*/
+.tabList {
+  background-color: var(--white);
+}
+
+.tab-Container{
+  border-left: 1px solid #e0e0e0;;
+}

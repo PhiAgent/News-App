@@ -140,16 +140,30 @@ const fetchTechNews = cb => {
    * @returns {void} - returns nothing but supplies callback with object with information on whether the transaction was successful
   */
 const newFavorite = (userID, newsID, cb) => {
+  const check = 'SELECT * FROM favorites WHERE userID = $1 AND newsID = $2';
   const query = 'INSERT INTO favorites(userID, newsID) VALUES ($1, $2)';
 
   pool
     .connect()
     .then(client =>
       client
-        .query(query, [userID, newsID])
+        .query(check, [userID, newsID])//check to make sure user hasn't favorited already
         .then(success => {
-          client.release();
-          cb(null, {msg: 200});
+          if(success.rows.length === 0) {//not favorited already
+            client
+              .query(query, [userID, newsID])//now insert
+              .then(favorited => {
+                client.release();
+                cb(null, { msg: 200 });
+              })
+              .catch(err => {
+                client.release();
+                cb({ msg: 500 });
+              })
+          } else {//already favorited
+            client.release();
+            cb(null, { msg: 200 });
+          }
         })
         .catch(err => {
           client.release();
