@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
-const { localConfig, deploymentConfig } = require('./../../database/config');
+// uncomment for Local
+// const { localConfig, deploymentConfig } = require('./../../database/config');
 require('dotenv').config();
 
 // Environment
@@ -11,11 +12,14 @@ const productionConfig = {
   ssl:isProduction
 };
 
-// Config Details
-const connectionConfig = isProduction ? productionConfig : localConfig;
+// Config Details--uncomment for Local
+// const connectionConfig = isProduction ? productionConfig : localConfig;
 
-// Connection
-const pool = new Pool(connectionConfig);
+// Deployment Connection
+const pool = new Pool(productionConfig);
+
+// local Connection
+// const pool = new Pool(localConfig);
 
 
 
