@@ -5,7 +5,9 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import NewsList, { sample } from '../controls/NewsList/NewsList';
+import { NewsList } from '../controls';
+import useNews from '../../context/context';
+
 
 const style = {
   width: '100%',
@@ -26,6 +28,7 @@ const style = {
 const Feed = () => {
 
   const [selected, setSelect] = React.useState('1');
+  const {techNews, businessNews, worldNews, favorites} = useNews();
 
   const handleChange = (event: any, newSelected: string) => {
     setSelect(newSelected);
@@ -52,11 +55,17 @@ const Feed = () => {
               </TabList>
             </Box>
             <TabPanel value="1">
-              <NewsList news={sample}/>
+              {techNews && <NewsList news={techNews}/>}
             </TabPanel>
-            <TabPanel value="2">World News</TabPanel>
-            <TabPanel value="3">Business News</TabPanel>
-            <TabPanel value="4">Favorites</TabPanel>
+            <TabPanel value="2">
+              {worldNews && <NewsList news={worldNews} />}
+            </TabPanel>
+            <TabPanel value="3">
+              {businessNews && <NewsList news={businessNews} />}
+            </TabPanel>
+            <TabPanel value="4">
+              {favorites && <NewsList news={favorites} />}
+            </TabPanel>
           </TabContext>
         </Box>
       </Stack>
