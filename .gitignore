@@ -9,6 +9,8 @@ data
 config.*
 notes.*
 deployment*
+webVitals
+
 
 # OS generated files
 .DS_Store
