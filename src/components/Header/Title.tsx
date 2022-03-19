@@ -20,7 +20,6 @@ const headStyle = {
   alignItems: 'center',
 };
 
-// logout will be displayed only when user is set
 
 const Title = () => {
 
@@ -29,7 +28,6 @@ const Title = () => {
     username,
     setUser,
     setUserID,
-    setFavorites,
     choose,
   } = useNews();
 

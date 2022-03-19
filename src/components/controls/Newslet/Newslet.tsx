@@ -4,7 +4,7 @@ import { News } from '../NewsList/NewsList';
 import Grid from '@mui/material/Grid';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { addFavorite, removeFavorite } from '../../../utils/utils';
+import { addFavorite, checkFavorite, removeFavorite } from '../../../utils/utils';
 import useNews from '../../../context/context';
 import axios from 'axios';
 const server = require('./../../../../server/url');
@@ -31,9 +31,11 @@ interface ModifiedNews {
 
 const Newslet = ({ id, category, source, author, title, description, url, urltoimage, publishedon, faves }: ModifiedNews) => {
 
-  var [favorite, markFavorite] = useState(faves ? 1 : 0);
+  const { favorites, setFavorites, businessNews, worldNews, techNews, userID } = useNews();
+
+  const [favorite, markFavorite] = useState(faves ? 1 : checkFavorite(id, favorites) ? 1 : 0);
   useEffect(() => { }, [favorite]);
-  const {favorites, setFavorites, businessNews, worldNews, techNews, userID} = useNews();
+
 
   // if not favorite, make favorite and
   // add to favorites in front end and

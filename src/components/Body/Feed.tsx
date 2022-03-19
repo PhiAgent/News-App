@@ -27,7 +27,7 @@ const style = {
 
 const Feed = () => {
 
-  const [selected, setSelect] = React.useState('1');
+  const [selected, setSelect] = useState('1');
   const {techNews, businessNews, worldNews, favorites} = useNews();
 
   const handleChange = (event: any, newSelected: string) => {
