@@ -10,13 +10,16 @@ import NewsList, { sample } from '../controls/NewsList/NewsList';
 const style = {
   width: '100%',
   overflow: 'auto',
-  maxHeight: '600px',
+  height: '600px',
   typography: 'body1',
-  '& .css-0': {
+  '& .MuiTabs-root': {
     borderBottom: 1,
     borderColor: 'divider',
     position: 'sticky'
   },
+  '& .MuiTabPanel-root': {
+    paddingX: 0,
+  }
 };
 
 // const tabHeaderStyle = {
@@ -42,10 +45,10 @@ const Feed = () => {
         </h3>
         <div></div>
       </div>
-      <Stack direction='row' spacing='5' className="tab-container">
+      <Stack direction='row' spacing='5' className="tab-container" sx={{ width: '100%', overflow: 'hidden' }}>
         <Box sx={style}>
           <TabContext value={selected}>
-            <Box>
+            <Box >
               <TabList onChange={handleChange} aria-label="lab API tabs example" className="tabList">
                 <Tab label="TECHNOLOGY" value="1" />
                 <Tab label="WORLD NEWS" value="2" />

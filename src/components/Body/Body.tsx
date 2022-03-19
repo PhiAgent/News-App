@@ -30,13 +30,13 @@ const Body = () => {
 
   return (
     <Grid container sx={style}>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={8}>
+      <Grid item xs={1}></Grid>
+      <Grid item xs={10}>
         {/* <Homepage/> */}
         {/* <Login/> */}
         <Feed/>
       </Grid>
-      <Grid item xs={2}></Grid>
+      <Grid item xs={1}></Grid>
     </Grid>
   )
 };

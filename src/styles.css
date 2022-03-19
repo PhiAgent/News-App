@@ -45,6 +45,18 @@ header {
   vertical-align: middle;
 }
 
+a {
+  cursor: pointer;
+}
+
+a.url {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.url:hover{
+  text-decoration: underline;
+}
 /* Footer Styles */
 footer {
   position: fixed;
@@ -142,4 +154,8 @@ footer {
 
 .tab-Container{
   border-left: 1px solid #e0e0e0;;
+}
+
+.heart {
+  color: #FF4033;
 }
