@@ -13,6 +13,6 @@ export const addFavorite = (id: number, category: News[], favorites: News[]) => 
 };
 
 
-// Check to see if news has been favorited
+// Check to see if news has been favorited on Frontend
 export const checkFavorite = (id: number, favorites: News[]) =>
 favorites.some(favorite => favorite['id'] === id);
