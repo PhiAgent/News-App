@@ -1,14 +1,24 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import { Tab } from '../controls';
-import Typography from '@mui/material/Typography';
 import useNews from '../../context/context';
 
 const Homepage = () => {
 
-  const {choose} = useNews()
+  const {choose, setSelect} = useNews()
 
-  const handleClick = () => {
+
+  const setTech = () => {
+    setSelect('1');
+    choose && choose(true);
+  };
+
+  const setBusiness = () => {
+    setSelect('3');
+    choose && choose(true);
+  }
+  const setWorld = () => {
+    setSelect('2');
     choose && choose(true);
   }
 
@@ -24,19 +34,19 @@ const Homepage = () => {
       <Stack direction='row' spacing='5' className="tab-container">
         <Tab
           text="TECHNOLOGY NEWS"
-          onClick={handleClick}
+          onClick={setTech}
           backgroundColor="#f97403"
           uniqClass="techTab"
         />
         <Tab
           text="WORLD NEWS"
-          onClick={handleClick}
+          onClick={setWorld}
           backgroundColor="#ff17e4"
           uniqClass="worldNewsTab"
         />
         <Tab
           text="BUSINESS NEWS"
-          onClick={handleClick}
+          onClick={setBusiness}
           backgroundColor="green"
           uniqClass="businessTab"
         />

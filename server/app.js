@@ -8,6 +8,7 @@ require("dotenv").config({ path: path.join(__dirname, "./config.env") });
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const compression = require('compression');
 const { getBusinessNews, getWorldNews, getTechNews, addFavorite, deleteFavorite, editUsername, addUser, getFavorites } = require('./controllers/controllers');
 
 // SETUP
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 8080;
 
 // MIDDLEWARE
 app.use(morgan('dev'));
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../dist')));

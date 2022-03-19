@@ -26,12 +26,10 @@ const style = {
 
 
 const Feed = () => {
-
-  const [selected, setSelect] = useState('1');
-  const {techNews, businessNews, worldNews, favorites} = useNews();
+  const { techNews, businessNews, worldNews, favorites, selected, setSelect } = useNews();
 
   const handleChange = (event: any, newSelected: string) => {
-    setSelect(newSelected);
+    setSelect && setSelect(newSelected);
   };
 
   return(
@@ -45,7 +43,7 @@ const Feed = () => {
       </div>
       <Stack direction='row' spacing='5' className="tab-container" sx={{ width: '100%', overflow: 'hidden' }}>
         <Box sx={style}>
-          <TabContext value={selected}>
+          <TabContext value={selected ? selected : ''}>
             <Box >
               <TabList onChange={handleChange} aria-label="lab API tabs example" className="tabList">
                 <Tab label="TECHNOLOGY" value="1" />

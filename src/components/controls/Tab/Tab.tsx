@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 type Props = {
   backgroundColor: string;
-  onClick: () => void
+  onClick: () => void;
   text: string;
   uniqClass: string;
 }
