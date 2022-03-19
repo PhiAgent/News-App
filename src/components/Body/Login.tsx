@@ -3,6 +3,8 @@ import Stack from '@mui/material/Stack';
 const url = require('./../../../server/url');
 import axios from 'axios';
 import {Button, Input} from '../controls';
+import useNews from './../../context/context';
+import {News} from './../controls/NewsList/NewsList'
 
 
 const style = {
@@ -22,22 +24,41 @@ const style = {
   '& .MuiTextField-root': { m: 1, width: '90%' },
 };
 
-// Notes
-// to do, import context setUser into this component
-// on loging in, set user in context
-// upon fetching user information from database
-// set userId in context
-// userId is what will be supplied for adding and
-// removing favorites in other components
 
 const Login = () => {
 
   const [username, setUsername] = useState('');
   const [errors, setErrors] = useState('');
+  const {
+    setUser,
+    setUserID,
+    setFavorites,
+    setTechNews,
+    setBusinessNews,
+    setWorldNews,
+  } = useNews();
 
   const handleChange = (e: any) => {
     setUsername(e.target.value);
   };
+
+  // fetch business news
+  axios
+    .get(`${url}/business`)
+    .then(result => setBusinessNews && setBusinessNews(result.data))
+    .catch(err => err)
+
+  // fetch world news
+  axios
+    .get(`${url}/world`)
+    .then(result => setWorldNews && setWorldNews(result.data))
+    .catch(err => err)
+
+  // fetch tech news
+  axios
+    .get(`${url}/tech`)
+    .then(result => setTechNews && setTechNews(result.data))
+    .catch(err => err)
 
   // Validates username
   const validate = () => {
@@ -85,13 +106,14 @@ const Login = () => {
       axios
         .post(`${url}/user`, {username})
         .then(result => {
-          // set users id in context
-          // use this for future favorites
-          // result.data[0].id
+          setUserID && setUserID(result.data[0]['id']);//set userID in context
+          return axios.get(`${url}/favorite`, { params: { userID: result.data[0]['id']
+          }});
         })
+        .then(response => setFavorites && setFavorites(response.data))//set favorites in context
         .catch(err => err.msg);
+      setUser && setUser(username);// set username in context
       setUsername('');
-      // set username in context
     }
   }
 

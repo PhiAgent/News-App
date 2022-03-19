@@ -10,12 +10,14 @@ interface userInfo {
   techNews: News[];
   businessNews: News[];
   worldNews: News[];
+  chosen: Boolean;
   setUser: (arg: string) => void;
   setUserID: (arg: number) => void;
   setFavorites: (arg: News) => void;
   setBusinessNews: (arg: News) => void;
   setTechNews: (arg: News) => void;
   setWorldNews: (arg: News) => void;
+  choose: (arg: Boolean) => void;
 }
 
 const defaultState = {
@@ -25,9 +27,10 @@ const defaultState = {
   businessNews: [],
   techNews: [],
   worldNews: [],
+  chosen: false,
 }
 
-const ThemeContext = createContext<Partial<userInfo>>(defaultState);
+const ThemeContext = createContext<Partial<userInfo>>({});
 
 export const ContextProvider: FC = ({children}) => {
 
@@ -38,6 +41,7 @@ export const ContextProvider: FC = ({children}) => {
   const [businessNews, setBusinessNews] = useLocalStorage('userID', defaultState.businessNews);
   const [techNews, setTechNews] = useLocalStorage('userID', defaultState.techNews);
   const [worldNews, setWorldNews] = useLocalStorage('userID', defaultState.worldNews);
+  const [chosen, choose] = useLocalStorage('chosen', defaultState.chosen);
 
 
   return (
@@ -48,12 +52,14 @@ export const ContextProvider: FC = ({children}) => {
       techNews,
       businessNews,
       worldNews,
+      chosen,
       setUser,
       setUserID,
       setFavorites,
       setTechNews,
       setBusinessNews,
       setWorldNews,
+      choose,
     }}>
       {children}
     </ThemeContext.Provider>
