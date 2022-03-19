@@ -1,6 +1,6 @@
 import React, { useContext, useState, createContext, FC } from 'react';
 import { News } from '../components/controls/NewsList/NewsList';
-import useLocalStorage from './../hooks/useLocalStorage';
+import {useLocalStorage} from './../hooks/useLocalStorage';
 
 
 interface userInfo {
@@ -20,7 +20,7 @@ interface userInfo {
   choose: (arg: Boolean) => void;
 }
 
-const defaultState = {
+export const defaultState = {
   username: '',
   userID: 0,
   favorites: [],

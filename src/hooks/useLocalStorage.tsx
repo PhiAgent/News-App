@@ -1,6 +1,6 @@
 const { useState } = require("react");
 
-const useLocalStorage = (key: string, firstValue: any) => {
+export const useLocalStorage = <Type,>(key: string, firstValue: Type): [Type, any] => {
 
   const [storeVal, setStoredVal] = useState(
     () => {
@@ -36,6 +36,5 @@ const useLocalStorage = (key: string, firstValue: any) => {
 
   window.localStorage.setItem(key, JSON.stringify(storeVal));
   return [storeVal, setLocalStorageValue];
-};
+}
 
-export default useLocalStorage;

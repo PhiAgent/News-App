@@ -14,28 +14,8 @@ const style = {
   paddingBottom: '15px',
 }
 
-// chosen is a state that will be stored
-// in context, upon clicking a buton on
-// homepage, chosen will be set to true
-// while chosen is true
-// the appropriate feed will be displayed
-// while chosen is true, homepage button will
-// be displayed in the first grid
-// the main point of the homepage is to
-// allow for more time to fetch data from database
-
-// two factors that determine what's displayed
-// if username and chosen are false
-// display Login
-// if only username is truthy
-// display homepage
-// if both are truthy
-// display main page
 
 const Body = () => {
-
-  // sends user to homepage
-  const handleSubmit = () => {};
 
   const {username, chosen} = useNews();
 

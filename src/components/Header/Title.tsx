@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import { Button } from '../controls';
 import Stack from '@mui/material/Stack';
+import useNews, { defaultState } from '../../context/context';
 
 
 const style = {
@@ -23,8 +24,27 @@ const headStyle = {
 
 const Title = () => {
 
-  // will set user to empty in context
-  const handleSubmit = () => {};
+  const {
+    chosen,
+    username,
+    setUser,
+    setUserID,
+    setFavorites,
+    choose,
+  } = useNews();
+
+  // Will set user to empty in context
+  const sendHome = () => {
+    choose && choose(false);
+  };
+
+  // Will log user out
+  const logOut = () => {
+    setUser && setUser('');
+    choose && choose(false);
+    setUserID && setUserID(0);
+  }
+
 
   return (
     <header>
@@ -35,20 +55,23 @@ const Title = () => {
             <DirectionsBikeIcon fontSize="large" className="icon" />
           </Typography>
           <Stack direction='row' spacing={2} >
+            {chosen &&
             <Button
               message="HOME"
               variant="contained"
-              onClick={handleSubmit}
+              onClick={sendHome}
               color="primary"
               size="large"
-            />
-            <Button
+            />}
+            {
+              username &&
+              <Button
               message="LOGOUT"
               variant="contained"
-              onClick={handleSubmit}
+              onClick={logOut}
               color="primary"
               size="large"
-            />
+            />}
           </Stack>
         </Toolbar>
       </AppBar>
