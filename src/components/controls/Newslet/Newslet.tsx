@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { addFavorite, removeFavorite } from '../../../utils/utils';
 import useNews from '../../../context/context';
 import axios from 'axios';
-const url = require('./../../../../server/url');
+const server = require('./../../../../server/url');
 
 const style = {
   width: '100%',
@@ -16,9 +16,22 @@ const style = {
   alignItems: 'center'
 };
 
-const Newslet = ({ id, category, source, author, title, description, url, urltoimage, publishedon}: News) => {
+interface ModifiedNews {
+  id: number;
+  category: string;
+  source: string;
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urltoimage: string;
+  publishedon: string;
+  faves: Boolean;
+};
 
-  var [favorite, markFavorite] = useState(0);
+const Newslet = ({ id, category, source, author, title, description, url, urltoimage, publishedon, faves }: ModifiedNews) => {
+
+  var [favorite, markFavorite] = useState(faves ? 1 : 0);
   useEffect(() => { }, [favorite]);
   const {favorites, setFavorites, businessNews, worldNews, techNews, userID} = useNews();
 
@@ -35,7 +48,7 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
       newFavorites && setFavorites && setFavorites(newFavorites);
       userID &&
       axios
-        .post(`${url}/favorite`, {userID, newsID: id})
+        .post(`${server}/favorite`, {userID, newsID: id})
         .then(results => results.data)
         .catch(err => err);
     } else {
@@ -44,7 +57,7 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
       selectFavorites && setFavorites && setFavorites(selectFavorites);
       userID &&
       axios
-        .delete(`${url}/favorite`, {params: {userID, newsID: id }})
+        .delete(`${server}/favorite`, {params: {userID, newsID: id }})
         .then(results => results.data)
         .catch(err => err);
     }

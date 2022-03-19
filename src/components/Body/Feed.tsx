@@ -55,16 +55,16 @@ const Feed = () => {
               </TabList>
             </Box>
             <TabPanel value="1">
-              {techNews && <NewsList news={techNews}/>}
+              {techNews && <NewsList news={techNews} faves={false}/>}
             </TabPanel>
             <TabPanel value="2">
-              {worldNews && <NewsList news={worldNews} />}
+              {worldNews && <NewsList news={worldNews} faves={false} />}
             </TabPanel>
             <TabPanel value="3">
-              {businessNews && <NewsList news={businessNews} />}
+              {businessNews && <NewsList news={businessNews} faves={false}/>}
             </TabPanel>
             <TabPanel value="4">
-              {favorites && <NewsList news={favorites} />}
+              {favorites && <NewsList news={favorites} faves={true}/>}
             </TabPanel>
           </TabContext>
         </Box>

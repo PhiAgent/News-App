@@ -33,9 +33,10 @@ export interface News {
 
 type Props = {
   news: News[];
+  faves: Boolean;
 }
 
-const NewsList = ({news}: Props) => {
+const NewsList = ({news, faves}: Props) => {
 
   return(
     <Stack direction="column" spacing={1} sx={styles}>
@@ -54,6 +55,7 @@ const NewsList = ({news}: Props) => {
               url={newslet.url}
               urltoimage={newslet.urltoimage}
               publishedon={newslet.publishedon}
+              faves={faves}
             />
           </ListItem>
         )
