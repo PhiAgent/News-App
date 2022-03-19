@@ -5,13 +5,25 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import NewsList, { sample } from '../controls/NewsList/NewsList';
 
 const style = {
   width: '100%',
   overflow: 'auto',
-  maxHeight: 850,
-  typography: 'body1'
+  maxHeight: '600px',
+  typography: 'body1',
+  '& .css-0': {
+    borderBottom: 1,
+    borderColor: 'divider',
+    position: 'sticky'
+  },
 };
+
+// const tabHeaderStyle = {
+//   borderBottom: 1,
+//   borderColor: 'divider',
+//   position: 'sticky'
+// }
 
 const Feed = () => {
 
@@ -33,7 +45,7 @@ const Feed = () => {
       <Stack direction='row' spacing='5' className="tab-container">
         <Box sx={style}>
           <TabContext value={selected}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box>
               <TabList onChange={handleChange} aria-label="lab API tabs example" className="tabList">
                 <Tab label="TECHNOLOGY" value="1" />
                 <Tab label="WORLD NEWS" value="2" />
@@ -41,7 +53,9 @@ const Feed = () => {
                 <Tab label="FAVORITES" value="4" />
               </TabList>
             </Box>
-            <TabPanel value="1">Technology News</TabPanel>
+            <TabPanel value="1">
+              <NewsList news={sample}/>
+            </TabPanel>
             <TabPanel value="2">World News</TabPanel>
             <TabPanel value="3">Business News</TabPanel>
             <TabPanel value="4">Favorites</TabPanel>

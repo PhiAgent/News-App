@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 
 type Props = {
-  onChange: (e: any) => void
+  onChange: (e: any) => void;
   name: string | undefined;
   label: string | undefined;
   value: string | undefined;

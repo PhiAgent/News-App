@@ -27,30 +27,32 @@ const Title = () => {
   const handleSubmit = () => {};
 
   return (
-    <AppBar position="static" elevation={2} className="title" sx={style}>
-      <Toolbar sx={headStyle}>
-        <Typography variant="h3" component="div" sx={{ flexGrow: 1 }} >
-          News on the go
-          <DirectionsBikeIcon fontSize="large" className="icon" />
-        </Typography>
-        <Stack direction='row' spacing={2} >
-          <Button
-            message="HOME"
-            variant="contained"
-            onClick={handleSubmit}
-            color="primary"
-            size="large"
-          />
-          <Button
-            message="LOGOUT"
-            variant="contained"
-            onClick={handleSubmit}
-            color="primary"
-            size="large"
-          />
-        </Stack>
-      </Toolbar>
-    </AppBar>
+    <header>
+      <AppBar position="static" elevation={2} className="title" sx={style}>
+        <Toolbar sx={headStyle}>
+          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }} >
+            News on the go
+            <DirectionsBikeIcon fontSize="large" className="icon" />
+          </Typography>
+          <Stack direction='row' spacing={2} >
+            <Button
+              message="HOME"
+              variant="contained"
+              onClick={handleSubmit}
+              color="primary"
+              size="large"
+            />
+            <Button
+              message="LOGOUT"
+              variant="contained"
+              onClick={handleSubmit}
+              color="primary"
+              size="large"
+            />
+          </Stack>
+        </Toolbar>
+      </AppBar>
+    </header>
   )
 }
 
