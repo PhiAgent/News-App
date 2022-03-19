@@ -1,8 +1,4 @@
-DROP DATABASE IF EXISTS news_app;
 
-CREATE DATABASE news_app;
-
-\connect news_app;
 
 CREATE TABLE users (
   id INTEGER GENERATED ALWAYS AS IDENTITY,
