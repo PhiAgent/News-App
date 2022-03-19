@@ -16,7 +16,10 @@ const Tab = ({ text,backgroundColor, uniqClass, onClick, ariaLabel }: Props) => 
       className={`tab ${uniqClass}`}
       style={{ backgroundColor}}
       onClick={onClick}
-      arial-label={ariaLabel}
+      aria-label={ariaLabel}
+      role="button"
+      tabIndex={0}
+      onKeyUp={(e: any) => e.key === 'Enter' && onClick()}
     >
       {text}
     </div>

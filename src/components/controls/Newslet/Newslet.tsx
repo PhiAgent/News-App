@@ -37,14 +37,12 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
   useEffect(() => { }, [favorite]);
 
 
-  // if not favorite, make favorite and
-  // add to favorites in front end and
-  // send request to backend
-  // else do the same
+  // Holds information on what category this news article belongs to
   const group = category === 'business' ? businessNews : category === 'world news' ? worldNews : techNews;
 
-  const faveFunc = () => {
-    if(!favorite){
+  const faveFunc = () => {//add or remove favorite
+
+    if(!favorite){//mark as favorite
       markFavorite(1);
       const newFavorites: any = group && favorites && addFavorite(id, group,favorites);
       newFavorites && setFavorites && setFavorites(newFavorites);
@@ -53,7 +51,8 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
         .post(`${server}/favorite`, {userID, newsID: id})
         .then(results => results.data)
         .catch(err => err);
-    } else {
+    }
+    else {//unfavorite a news
       markFavorite(0);
       const selectFavorites: any = group && favorites && removeFavorite(id, favorites);
       selectFavorites && setFavorites && setFavorites(selectFavorites);
@@ -77,7 +76,13 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
             {title}</a></b></Grid>
         <Grid item md></Grid>
         <Grid item > <small>
-          <a onClick={() => faveFunc()}>
+          <a
+            onClick={() => faveFunc()}
+            aria-label={favorite ? 'Click to remove from favorites': 'Click to add to favorites'}
+            role="button"
+            tabIndex={0}
+            onKeyUp={(e: any) => e.key === 'Enter' && faveFunc()}
+          >
             {favorite ?
               <FavoriteIcon fontSize="medium" className="heart" /> :
               <FavoriteBorderIcon fontSize="medium" className="heart" />
