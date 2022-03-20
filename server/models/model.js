@@ -22,8 +22,6 @@ const pool = new Pool(productionConfig);
 // const pool = new Pool(localConfig);
 
 
-
-
 /**
    * Checks if user already registered in database
    * if user not registered, adds user to database
@@ -66,7 +64,7 @@ const registerUser = (username, cb) => {
         })
         .catch(err => {
           client.release();
-          cb({ msg: 500 });
+          cb({ msg: 500});
         })
     )
     .catch(err => cb({ msg: 500 }))
@@ -92,7 +90,7 @@ const fetchBusinessNews = cb => {
           })
           .catch( err => {
             client.release();
-            cb({ msg: 500 });
+            cb({ msg: 500, err: err});
           })
       )
     .catch(err => cb({ msg: 500 }))

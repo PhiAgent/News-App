@@ -34,7 +34,6 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
   const { favorites, setFavorites, businessNews, worldNews, techNews, userID } = useNews();
 
   const [favorite, markFavorite] = useState(faves ? 1 : checkFavorite(id, favorites) ? 1 : 0);
-  useEffect(() => { }, [favorite]);
 
 
   // Holds information on what category this news article belongs to
@@ -73,8 +72,9 @@ const Newslet = ({ id, category, source, author, title, description, url, urltoi
           rel="noreferrer"
           className="url"
           >
-            {title}</a></b></Grid>
-        <Grid item md></Grid>
+            {title}</a></b>
+        </Grid>
+        <Grid item xs></Grid>
         <Grid item > <small>
           <a
             onClick={() => faveFunc()}
