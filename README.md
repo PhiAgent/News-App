@@ -47,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is a application that allows you to save news articles you'd like to read later so you can visit them at your convenience.
-  * [News App] (https://news-app-pga.herokuapp.com/)
+  * [NewsApp] (https://news-app-pga.herokuapp.com/)
 
 [![Product Name Screen Shot][product-screenshot]]
 
