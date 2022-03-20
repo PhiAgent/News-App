@@ -46,7 +46,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This is a application that allows you to save news articles you'd like to read later so you can visit them at your convenience. [News App] (https://news-app-pga.herokuapp.com/)
+This is a application that allows you to save news articles you'd like to read later so you can visit them at your convenience.
+  * [News App] (https://news-app-pga.herokuapp.com/)
 
 [![Product Name Screen Shot][product-screenshot]]
 
@@ -127,8 +128,9 @@ MVC architecture
 
 ### Web Development Best Practices
 
-1. Separation of Concerns
-  I separated my UI components based on their function. My Reusables were in isolated in the controls folder, the header of the page in the header folder, the footer in the footer folder. I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
+  #### Separation of Concerns
+    I separated my UI components based on their function. My Reusables were in isolated in the controls folder, the header of the page in the header folder, the footer in the footer folder. I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
+
 2. Project Structure
   └── /src
       ├── /components
@@ -162,13 +164,14 @@ MVC architecture
         └── utils.tsx
       ├── App.tsx
       └── index.tsx
-3. Web Vitals
-  First Contentful Paint: 897ms; 92%
-  Speed Index: 1.3s; 90%
-  Largest Contentful Paint: 937ms; 96%
-  Time to Interactive: 1.4s; 99%
-  Cumulative Layout shift: 0.00; 100%
-  Accessibility: 100%
+
+  #### Web Vitals
+    First Contentful Paint: 897ms; 92%
+    Speed Index: 1.3s; 90%
+    Largest Contentful Paint: 937ms; 96%
+    Time to Interactive: 1.4s; 99%
+    Cumulative Layout shift: 0.00; 100%
+    Accessibility: 100%
   <a href="https://imgur.com/I6Qj5Og"><img src="https://imgur.com/I6Qj5Og.png" alt="web vitals" title="source: imgur.com" /></a>
 
 
