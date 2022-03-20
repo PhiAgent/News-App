@@ -98,6 +98,7 @@ This is a application that allows you to save news articles you'd like to read l
   2. Aria Roles: Used aria-roles to allow screen readers to see non-button clickable elements.
   3. Tab-Index: Use to make entire application navigable using just keyboard for users without mouse access.
   4. onKeyUp: Used to distinguish between key presses while using my application. Users can navigate with 'tab' and select with 'enter'.
+<a href="https://imgur.com/BoWkyHF"><img src="https://imgur.com/BoWkyHF.png" alt="accessibility in code" title="source: imgur.com" /></a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -131,39 +132,9 @@ MVC architecture
   #### Separation of Concerns
     I separated my UI components based on their function. My Reusables were in isolated in the controls folder, the header of the page in the header folder, the footer in the footer folder. I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
 
-2. Project Structure
-  └── /src
-      ├── /components
-    |   ├── /Body
-    |   |   ├── Body.tsx
-    |   |   ├── Feed.tsx
-            ├── Homepage.tsx
-    |   |   └── Login.tsx
-        ├── controls//reusable components
-      |   ├── /Button
-        |   | └── Button.tsx
-      |   ├── /Input
-        |   | └── Input.tsx
-      |   ├── /Newslet
-        |   | └── Newslet.tsx
-      |   ├── /NewsList
-      |   |   └── NewsList.tsx
-      |   ├── /Tab
-        |   |   └── Tab.tsx
-      |   ├──index.tsx//index of all the reusables
-      |   ├──interfaces.tsx
-    |   ├── /Footer
-      |   |   └── Footer.tsx
-    |   └── /Header
-    |   |   └── Title.tsx
-      ├── /context
-    |   └── context.tsx
-      ├── /hooks
-    |   └── useLocalStorage.tsx
-      ├── /utils
-        └── utils.tsx
-      ├── App.tsx
-      └── index.tsx
+  ####Project Structure
+  <a href="https://imgur.com/cDyTHhM"><img src="https://imgur.com/cDyTHhM.png" alt="file structure" title="source: imgur.com" /></a>
+
 
   #### Web Vitals
     First Contentful Paint: 897ms; 92%
@@ -174,6 +145,16 @@ MVC architecture
     Accessibility: 100%
   <a href="https://imgur.com/I6Qj5Og"><img src="https://imgur.com/I6Qj5Og.png" alt="web vitals" title="source: imgur.com" /></a>
 
+  #### User Flow
+
+  ##### Login Page
+  <a href="https://imgur.com/Hu9Y1fE"><img src="https://imgur.com/Hu9Y1fE.png" alt="web vitals" title="source: imgur.com" /></a>
+
+  ##### Home Page
+  <a href="https://imgur.com/2UbAGbd"><img src="https://imgur.com/2UbAGbd.png" alt="web vitals" title="source: imgur.com" /></a>
+
+  ##### Feed Page
+  <a href="https://imgur.com/LMwLsG8"><img src="https://imgur.com/LMwLsG8.png" alt="web vitals" title="source: imgur.com" /></a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
