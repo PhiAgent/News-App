@@ -89,10 +89,10 @@ This is a application that allows you to save news articles you'd like to read l
 
 ### UI Design And Accessibility
 
-1. UI Design:
+#### UI Design:
   1. Reusable Components: Application made use of reusable components to reduce the size of the code base and allow for a centralized point of design decisions.
     Reusable Components Used: Tab.tsx, Button.tsx, Newslet.tsx, NewsList.tsx, Input.tsx
-2. Accessibility:
+#### Accessibility:
   1. Aria Labels: Made use of aria-labels to allow screen reader to correctly read components on the page to vision impaired users.
   2. Aria Roles: Used aria-roles to allow screen readers to see non-button clickable elements.
   3. Tab-Index: Use to make entire application navigable using just keyboard for users without mouse access.
@@ -169,7 +169,7 @@ MVC architecture
   Time to Interactive: 1.4s; 99%
   Cumulative Layout shift: 0.00; 100%
   Accessibility: 100%
-  <a href="https://imgur.com/I6Qj5Og"><img src="https://imgur.com/I6Qj5Og.png" height='200px' title="source: imgur.com" /></a>
+  <a href="https://imgur.com/I6Qj5Og"><img src="https://imgur.com/I6Qj5Og.png" alt="web vitals" title="source: imgur.com" /></a>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
