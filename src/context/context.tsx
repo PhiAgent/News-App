@@ -41,7 +41,7 @@ export const ContextProvider: FC = ({children}) => {
   const [username, setUser] = useLocalStorage('username', defaultState.username);
   const [userID, setUserID] = useLocalStorage('userID', defaultState.userID);
   const [favorites, setFavorites] = useLocalStorage('favorites', defaultState.favorites);
-  const [businessNews, setBusinessNews] = useLocalStorage('busines', defaultState.businessNews);
+  const [businessNews, setBusinessNews] = useLocalStorage('business', defaultState.businessNews);
   const [techNews, setTechNews] = useLocalStorage('tech', defaultState.techNews);
   const [worldNews, setWorldNews] = useLocalStorage('worldNews', defaultState.worldNews);
   const [chosen, choose] = useLocalStorage('chosen', defaultState.chosen);
