@@ -48,9 +48,7 @@ const Login = () => {
     axios
       .get(`${url}/business`)
       .then(result => setBusinessNews && setBusinessNews(result.data))
-      .catch(err => {
-        console.log(err.data);
-      })
+      .catch(err => err)
 
     // fetch world news
     axios

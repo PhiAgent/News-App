@@ -9,11 +9,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 // Production Config
 const productionConfig = {
   connectionString: process.env.DATABASE_URL,
-  ssl:isProduction
 };
 
 // Config Details--uncomment for Local
-// const connectionConfig = isProduction ? productionConfig : localConfig;
+// const connectionConfig = !isProduction ? deploymentConfig : localConfig;
 
 // Deployment Connection
 const pool = new Pool(productionConfig);
