@@ -10,7 +10,7 @@ config.*
 notes.*
 deployment*
 webVitals
-
+vid*
 
 # OS generated files
 .DS_Store
