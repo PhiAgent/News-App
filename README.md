@@ -134,7 +134,7 @@ MVC architecture
     I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
 
   #### Project Structure
-    <a href="https://imgur.com/cDyTHhM"><img src="https://imgur.com/cDyTHhM.png" alt="file structure" title="source: imgur.com" /></a>
+  <a href="https://imgur.com/cDyTHhM"><img src="https://imgur.com/cDyTHhM.png" alt="file structure" title="source: imgur.com" /></a>
 
 
   #### Web Vitals
