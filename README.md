@@ -70,9 +70,9 @@ This is a application that allows you to save news articles you'd like to read l
 
 1. JS Library/Framework: React
 2. Ways of Interaction:
-  a. By mouse
-  b. By keyboard
-  c. By screenReader(Application fully navigable using a screenReader)
+  * By mouse
+  * By keyboard
+  * By screenReader(Application fully navigable using a screenReader)
 3. Architectural Pattern: MVC
 4. Integration with a PostGreSQL database hosted on Heroku that allows create, read, update and delete options via RESTful API's
 5. Usage of over 5 MUI components
