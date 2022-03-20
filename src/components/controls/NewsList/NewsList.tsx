@@ -42,6 +42,7 @@ const NewsList = ({news, faves}: Props) => {
     <Stack direction="column" spacing={1} sx={styles}>
       <List>
         {
+          news &&
         news.map(
           (newslet, i) =>
           <ListItem key={`${newslet.id} ${i}`}>
