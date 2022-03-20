@@ -82,21 +82,21 @@ This is a application that allows you to save news articles you'd like to read l
 
 ### Languages
 
-Backend: PostGreSQL, Node.js
-Frontend: TypeScript, HTML, CSS
+1. Backend: PostGreSQL, Node.js
+2. Frontend: TypeScript, HTML, CSS
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### UI Design And Accessibility
 
 1. UI Design:
-  a. Reusable Components: Application made use of reusable components to reduce the size of the code base and allow for a centralized point of design decisions.
+  1. Reusable Components: Application made use of reusable components to reduce the size of the code base and allow for a centralized point of design decisions.
     Reusable Components Used: Tab.tsx, Button.tsx, Newslet.tsx, NewsList.tsx, Input.tsx
 2. Accessibility:
-  a. Aria Labels: Made use of aria-labels to allow screen reader to correctly read components on the page to vision impaired users.
-  b. Aria Roles: Used aria-roles to allow screen readers to see non-button clickable elements.
-  c. Tab-Index: Use to make entire application navigable using just keyboard for users without mouse access.
-  d. onKeyUp: Used to distinguish between key presses while using my application. Users can navigate with 'tab' and select with 'enter'.
+  1. Aria Labels: Made use of aria-labels to allow screen reader to correctly read components on the page to vision impaired users.
+  2. Aria Roles: Used aria-roles to allow screen readers to see non-button clickable elements.
+  3. Tab-Index: Use to make entire application navigable using just keyboard for users without mouse access.
+  4. onKeyUp: Used to distinguish between key presses while using my application. Users can navigate with 'tab' and select with 'enter'.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -256,8 +256,8 @@ MVC architecture
   - Request Body Example:
   ```javascript
   {
-    oldUsername: 'phiAgent',
-    newUsername: 'Obede'
+    userID: 1,
+    newsID: 1
   }
   ```
 
