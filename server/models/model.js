@@ -9,6 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 // Production Config
 const productionConfig = {
   connectionString: process.env.DATABASE_URL,
+  ssl: true,
 };
 
 // Config Details--uncomment for Local
