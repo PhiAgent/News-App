@@ -12,13 +12,8 @@ const getFavorites = (req, res) => {
 
 const getBusinessNews = (req, res) => {
 
-  const cb = (err, businessNews) => {
-      if(err){
-        return res.status(err.msg).end();
-      } else {
-        return res.status(200).send(businessNews)
-      }
-    };
+  const cb = (err, businessNews) =>
+  err ? res.status(err.msg).end() : res.status(200).send(businessNews);
 
   fetchBusinessNews(cb);
 };
