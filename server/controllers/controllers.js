@@ -13,7 +13,7 @@ const getFavorites = (req, res) => {
 const getBusinessNews = (req, res) => {
 
   const cb = (err, businessNews) =>
-  err ? res.status(err.msg).end() : res.status(200).send(businessNews);
+  err ? res.status(err.msg).send(err.err) : res.status(200).send(businessNews);
 
   fetchBusinessNews(cb);
 };
@@ -22,7 +22,7 @@ const addUser = (req, res) => {
   const username = req.body.username;
 
   const cb = (err, user) =>
-    err ? res.status(500).send(err) : res.status(200).send(user);
+    err ? res.status(500).end(err) : res.status(200).send(user);
 
   registerUser(username, cb);
 };
