@@ -12,9 +12,6 @@ const productionConfig = {
   ssl: { rejectUnauthorized: false }
 };
 
-// Config Details--uncomment for Local
-// const connectionConfig = !isProduction ? deploymentConfig : localConfig;
-
 // Deployment Connection
 const pool = new Pool(productionConfig);
 
