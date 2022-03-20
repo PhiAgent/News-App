@@ -89,7 +89,7 @@ const fetchBusinessNews = cb => {
           })
           .catch( err => {
             client.release();
-            cb({ msg: 500, err: err});
+            cb({ msg: 501, err: err});
           })
       )
     .catch(err => cb({ msg: 500, err: err }))
