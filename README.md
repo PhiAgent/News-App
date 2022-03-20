@@ -129,10 +129,12 @@ MVC architecture
 ### Web Development Best Practices
 
   #### Separation of Concerns
-    I separated my UI components based on their function. My Reusables were in isolated in the controls folder, the header of the page in the header folder, the footer in the footer folder. I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
+    I separated my UI components based on their function.
+    My Reusables were in isolated in the controls folder, the header of the page in the header folder, the footer in the footer folder.
+    I isolated other parts like the util functions and the hooks. This made my code easy to navigate.
 
-  ####Project Structure
-  <a href="https://imgur.com/cDyTHhM"><img src="https://imgur.com/cDyTHhM.png" alt="file structure" title="source: imgur.com" /></a>
+  #### Project Structure
+    <a href="https://imgur.com/cDyTHhM"><img src="https://imgur.com/cDyTHhM.png" alt="file structure" title="source: imgur.com" /></a>
 
 
   #### Web Vitals
